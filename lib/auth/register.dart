@@ -44,37 +44,37 @@ class Register extends StatelessWidget {
             children: [
               Icon(Icons.message_rounded,
                   size: 100, color: Theme.of(context).colorScheme.primary),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 "Welcome to FlutChat",
                 style: TextStyle(
                     fontSize: 16,
                     color: Theme.of(context).colorScheme.inversePrimary),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               MyTextField(
                 hintText: 'Email',
                 obscureText: false,
                 controller: _emailController,
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               MyTextField(
                 hintText: 'Password',
                 obscureText: true,
                 controller: _pwController,
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               MyTextField(
                 hintText: 'Confirm Password',
                 obscureText: true,
                 controller: _cnf_pwController,
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               MyButton(
                 text: 'Register',
                 onTap: () => register(context),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

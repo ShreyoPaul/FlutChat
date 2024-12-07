@@ -4,7 +4,7 @@ import 'package:flutchat/auth/auth.dart';
 import 'package:flutchat/pages/home.dart';
 
 class AuthGate extends StatelessWidget {
-  AuthGate({super.key});
+  const AuthGate({super.key});
 
   // This widget is the root of your application.
   @override

@@ -10,7 +10,7 @@ void main() async {
   await Firebase.initializeApp();
   runApp(ChangeNotifierProvider(
     create: (context) => ThemeProvider(),
-    child: MyApp(),
+    child: const MyApp(),
   ));
 }
 
@@ -22,11 +22,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/login': (context) => Auth(), // Define the login page route
+        '/login': (context) => const Auth(), // Define the login page route
       },
       debugShowCheckedModeBanner: false,
       theme: Provider.of<ThemeProvider>(context).themeData,
-      home: AuthGate(),
+      home: const AuthGate(),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:flutchat/auth/auth_gate.dart';
 import 'package:flutchat/auth/auth_service.dart';
 import 'package:flutchat/pages/home.dart';
 import 'package:flutchat/pages/settings.dart';
@@ -6,9 +7,14 @@ import 'package:flutter/material.dart';
 class MyDrawer extends StatelessWidget {
   MyDrawer({super.key});
 
-  void logout() {
+  void logout(BuildContext context) {
     final auth = AuthService();
     auth.signOut();
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => AuthGate()),
+      (route) => false, // This removes all previous routes
+    );
     return;
   }
 
@@ -37,11 +43,11 @@ class MyDrawer extends StatelessWidget {
               ),
               ListTile(
                   onTap: () => {
-                        Navigator.pop(context),
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Homepage())),
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => Homepage()),
+                          (route) => false, // This removes all previous routes
+                        )
                       },
                   minLeadingWidth: 20,
                   minVerticalPadding: 20,
@@ -81,7 +87,7 @@ class MyDrawer extends StatelessWidget {
             ],
           ),
           ListTile(
-              onTap: logout,
+              onTap: () => logout(context),
               minLeadingWidth: 20,
               minVerticalPadding: 20,
               title: Text(
